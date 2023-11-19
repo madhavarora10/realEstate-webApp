@@ -1,0 +1,89 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "next/core-web-vitals"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json",
+    "ecmaVersion": "latest"
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.js",
+        "*.ts",
+        "*.tsx",
+        "*.json"
+      ],
+      "rules": {
+        "import/no-extraneous-dependencies": [
+          "off"
+        ],
+        "import/no-absolute-path": [
+          "off"
+        ],
+        "import/extensions": [
+          "off"
+        ],
+        "import/prefer-default-export": [
+          "off"
+        ],
+        "react/function-component-definition": [
+          "error",
+          {
+            "namedComponents": "arrow-function"
+          }
+        ],
+        "react/jsx-props-no-spreading": [
+          "off"
+        ],
+        "@next/next/no-img-element": [
+          "off"
+        ],
+        "jsx-a11y/anchor-is-valid": [
+          "off"
+        ],
+        "max-len":[
+          "off"
+        ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "variable",
+            "format": [
+              "camelCase",
+              "PascalCase",
+              "UPPER_CASE"
+            ],
+            "filter": {
+              "regex": "^(access_token,_id)$",
+              "match": false
+            }
+          }
+        ],
+        "linebreak-style": [
+          "off"
+        ],
+        "no-underscore-dangle": [
+          "error",
+          {
+            "allow": [
+              "_id"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

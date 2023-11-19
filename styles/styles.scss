@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import "./variables.scss";
+
+body {
+    margin: 0;
+    font-family: var(--font-poppins);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--clr-1A1A1A);
+    background-color: var(--clr-FFFFFF);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+.element__container {
+    display: flex;
+    // border: 1px solid red;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    // min-width: 986px;
+    // width: calc(100% - 3rem);
+    // margin: 0 2rem;
+    overflow-x: hidden;
+    padding: 5rem 0;
+   
+   
+}
+
+.element__min__height {
+    min-height: 70vh;
+    align-items: center;
+    justify-content: center;
+
+
+    @media screen and (max-width: 800px) {
+        align-items: center;
+        justify-content: center;
+        min-height: 70vh;
+    }
+
+}
+
+
+@media screen and (min-width: 1024px) {
+    .element__container {
+        // max-width: 1200px;
+        // position: relative;
+        //  min-width: 986px;
+    //    width: calc(100% - 3rem);
+         padding:10rem;
+    }
+}
+
+.element__container__size {
+    max-width: 986px;
+    width: calc(100% - 3rem);
+    margin: 0 1.5rem;
+    padding: 2rem 0;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .element__container__size {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 5rem 0;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .hidden__web {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .hidden__mobile {
+        display: none;
+    }
+}

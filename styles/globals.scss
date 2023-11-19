@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./styles.scss";
+@import "./styles.scss";
+
+@font-face {
+    font-family:Poppins-regular ;
+    src: url("./fonts/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family:Rubik-regular ;
+    src: url("./fonts/Rubik-Regular.ttf") format("truetype");
+}
+
+
+
+.swiper-pagination-bullet{
+    background: black !important;
+    opacity: 1 !important;
+  
+    
+}
+.swiper-pagination{
+    margin-top: 20px;
+    position: relative !important;
+}
+
+.swiper-pagination-bullet-active {
+ 
+  
+    width: 26.3px !important;
+    height: 7.17px !important;
+    border-radius: 3px !important;
+    background: #10B3FE !important;
+
+  }
+ 

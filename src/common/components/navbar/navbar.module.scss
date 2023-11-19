@@ -1,0 +1,32 @@
+.navbar{
+   
+    transition: all 300ms ease 0s;
+    color: #535479;
+    z-index: 1000;
+    position: fixed;
+   top: 10px;
+   width: 100%;
+  padding: 2rem 10rem;
+   
+   
+}
+
+.modalBackdrop{ 
+    z-index: 10000;
+     position: absolute;
+     top: 0;
+     left: 0;
+     background-color: transparent;
+     
+    width: 100vw;
+     height: 100%;
+    
+   }
+
+.signUp{
+
+transition: all 120ms ease 0s;
+color: rgb(14, 11, 61)
+
+}
+

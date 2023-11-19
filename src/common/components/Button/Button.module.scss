@@ -1,0 +1,142 @@
+.inputClass{
+	background-color: var(--clr-primary);
+	text-align: center;
+}
+.wrapperPrimary {
+	background-color: #000;
+	font-size: 16px;
+	height: 49px;
+	color: #fff;
+	padding: 15.5px 24px;
+	transition: all 0.4s;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+}
+
+.wrapperPrimary:hover {
+	background-color: #000;
+	color: #fff;
+	border-color: transparent;
+	outline: none;
+	box-shadow: none;
+}
+
+.wrapperSecondary {
+	// background-color: theme('colors.color-5865F2') !important;
+	// font-family: var(--font-poppins);
+	min-width: 129px !important;
+	height: 49px !important;
+	font-size: 16px !important;
+	font-weight: 500;
+	padding: 16px 24px !important;
+	border-radius: 56px !important;
+	border: none;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	box-shadow: none;
+}
+
+.wrapperSecondary:hover,
+.wrapperPrimary:hover {
+	opacity: 0.9;
+}
+
+.hoverArrow {
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	transition-property: all;
+	transition-duration: 0.15s;
+	position: relative;
+	top: 1px;
+
+	margin-left: 5px;
+}
+
+.wrapperSecondary:hover .arrowTip,
+.wrapperPrimary:hover .arrowTip {
+	transform: translateX(3px);
+}
+
+.wrapperSecondary:hover .arrowLine,
+.wrapperPrimary:hover .arrowLine {
+	transform: scaleX(1.3);
+}
+
+.arrowTip {
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	transition-property: all;
+	transition-duration: 0.15s;
+
+}
+
+.arrowLine {
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	transition-property: all;
+	transition-duration: 0.15s;
+	transform-origin: left center;
+}
+
+
+.button {
+	&__type_1 {
+		color: var(--clr-white);
+		// background-color: var(--clr-white) !important;
+		border: 1px solid var(--clr-white) !important;
+		// font-family: var(--font-poppins);
+		// min-width: 129px !important;
+		height: 3rem !important;
+		font-size: 1rem !important;
+		font-weight: 500;
+		padding: 1rem 1.5rem !important;
+		// border-radius: 3.5rem !important;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		box-shadow: none;
+
+		:hover {
+			background-color: red;
+			color: green;
+			border-color: transparent;
+			outline: none;
+			box-shadow: none;
+		}
+	}
+
+}
+
+
+
+/* CSS */
+.button-31 {
+	background-color: #222;
+	border-radius: 4px;
+	border-style: none;
+	box-sizing: border-box;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.5;
+	margin: 0;
+	max-width: none;
+	min-height: 44px;
+	min-width: 10px;
+	outline: none;
+	overflow: hidden;
+	padding: 9px 20px 8px;
+	position: relative;
+	text-align: center;
+	text-transform: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	width: 100%;
+}
+
+.button-31:hover,
+.button-31:focus {
+	opacity: .75;
+}

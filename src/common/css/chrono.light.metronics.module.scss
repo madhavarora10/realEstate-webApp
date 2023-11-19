@@ -1,0 +1,25 @@
+.horizontal {
+  &__card {
+    min-height: fit-content !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+
+    :global {
+      .card-description {
+        margin: 0 !important;
+        padding: 0 !important;
+
+
+        &:empty {
+          display: none !important;
+        }
+
+        p {
+          &:empty {
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+@tailwind base;
+
+@layer base {
+    :root {
+        --clr-white: #ffffff;
+        --clr-black: #000000;   
+        --clr-primary: #69B99D;   
+        --clr-primaryDark: #020538;   
+        --clr-secondary: #1F2744;   
+        --clr-8E8E8E: #8E8E8E;   
+        --clr-primary-bg: #F5F5F5;   
+        --clr-secondary-bg: #FEFEFF;   
+        --clr-descp-color: #73788C;
+        --clr-cardborder-color: #DEDCDA;
+        --clr-card-descp: #A6A6A6;
+        --clr-e3e3e3: #f2f2f2;
+        --clr-575757: #575757;
+        --clr-d4fff0: #d4fff0;
+        --clr-F7f7FD: #F7f7FD;
+        --clr-F5F2EB: #F5F2EB;
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+        --clr-009ef6: #009ef6;
+        --clr-6610f2: #6610f2;
+        --clr-6f42c1: #6f42c1;
+        --clr-d63384: #d63384;
+        --clr-dc3545: #dc3545;
+        --clr-fd7e14: #fd7e14;
+        --clr-ffc107: #ffc107;
+        --clr-198754: #198754;
+        --clr-20c997: #20c997;
+        --clr-0dcaf0: #0dcaf0;
+        --clr-3699ff: #3699ff;
+        --clr-187de4: #187de4;
+        --clr-f1faff: #f1faff;
+        --clr-212e48: #212e48;
+        --clr-1bc5bd: #1bc5bd;
+        --clr-0bb7af: #0bb7af;
+        --clr-1c3833: #1c3833;
+        --clr-c9f7f5: #c9f7f5;
+        --clr-8950fc: #8950fc;
+        --clr-7337ee: #7337ee;
+        --clr-2f264f: #2f264f;
+        --clr-eee5ff: #eee5ff;
+        --clr-ffa800: #ffa800;
+        --clr-ee9d01: #ee9d01;
+        --clr-392f28: #392f28;
+        --clr-fff4de: #fff4de;
+        --clr-f64e60: #f64e60;
+        --clr-ee2d41: #ee2d41;
+        --clr-3a2434: #3a2434;
+        --clr-ffe2e5: #ffe2e5;
+        --clr-f1f3f8: #f1f3f8;
+        --clr-b93993: #b93993;
+        --clr-ffad0f: #ffad0f;
+        --clr-1a1a27: #1a1a27;
+        --clr-a2a5b7: #a2a5b7;
+        --clr-9899ac: #9899ac;
+        --clr-f2f4f6: #f2f4f6;
+        --clr-edf5fb: #edf5fb;
+        --clr-f1416c: #f1416c;
+        --clr-eef3f7: #eef3f7;
+        --clr-e8fff3: #e8fff3;
+        --clr-50cd89: #50cd89;
+        --clr-fff5f8: #fff5f8;
+        --clr-ffc700: #ffc700;
+        --clr-fff8dd: #fff8dd;
+        --clr-151521: #151521;
+        --clr-link-hover-color: darken($primary, 15%);
+        --clr-f4f6fa: #f4f6fa;
+        --clr-9899ac: #9899ac;
+        --clr-888B93: #888B93;
+
+        --clr-575757: #575757;
+        --clr-F6F7FE: #F6F7FE;
+        --color-theme: #5865F2;
+        --color-theme-secondary: #23272A;
+        --color-menu: rgba(255, 255, 255, 0.92);
+        --color-menu-hover: #f4f6fa;
+        --color-eef3ff: #eef3ff;
+
+
+        --font-poppins: 'Poppins', sans-serif;
+
+
+
+        --color-5865F2: #5865F2;
+        --color-232721: #232721;
+        --color-60656F: #60656F;
+        --color-FFFFFF: #FFFFFF;
+        --color-F3F5F9: #f3f5f9;
+        --color-eef0fe: #eef0fe;
+    }
+
+    .theme-dark {
+        --clr-gray-100: #1b1b29;
+        --clr-gray-200: #2b2b40;
+        --clr-gray-300: #323248;
+        --clr-gray-400: #474761;
+        --clr-gray-500: #565674;
+        --clr-gray-600: #6d6d80;
+        --clr-gray-700: #92929f;
+        --clr-gray-800: #cdcdde;
+        --clr-gray-900: #ffffff;
+        --clr-page-bg: #151521;
+        --clr-text-muted: #565674;
+        --clr-gray: #6d6d80;
+        --clr-gray-dark: #cdcdde;
+        --clr-dark-active: darken(#ffffff, 9%);
+        --clr-dark-inverse: #1b1b29;
+        --clr-primary-light: #212e48;
+        --clr-light: #323248;
+        --clr-light-active: #474761;
+        --clr-light-inverse: #cdcdde;
+        --clr-success-light: #1C3833;
+        --clr-info-light: #2f264f;
+        --clr-warning-light: #392f28;
+        --clr-danger-light: #3a2434;
+        --clr-bg: #ffffff;
+    }
+
+    .theme-light {
+        --clr-gray-100: #f5f8fa;
+        --clr-gray-200: #eff2f5;
+        --clr-gray-300: #e4e6ef;
+        --clr-gray-400: #b5b5c3;
+        --clr-gray-500: #a1a5b7;
+        --clr-gray-600: #7e8299;
+        --clr-gray-700: #5e6278;
+        --clr-gray-800: #3f4254;
+        --clr-gray-900: #181c32;
+        --clr-page-bg: #ffffff;
+        --clr-text-muted: #a1a5b7;
+        --clr-gray: #7e8299;
+        --clr-gray-dark: #3f4254;
+        --clr-dark-active: darken(#181c32, 3%);
+        --clr-dark-inverse: #ffffff;
+        --clr-primary-light: #f1faff;
+        --clr-light: #f5f8fa;
+        --clr-light-active: #eff2f5;
+        --clr-light-inverse: #7e8299;
+        --clr-success-light: #c9f7f5;
+        --clr-info-light: #eee5ff;
+        --clr-warning-light: #fff4de;
+        --clr-danger-light: #ffe2e5;
+        --clr-bg: #1e1e2d;
+    }
+}
+

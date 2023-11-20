@@ -2,7 +2,7 @@
 import React from 'react';
 import Footer from '../../common/components/Footer';
 import NavBanner from '../../common/components/navbar';
-import { LoginCard } from './components/LoginUp';
+import { LoginCard } from './components/Login';
 import { LoginViewProps } from './types/login-view';
 
 const LoginView = (props) => {

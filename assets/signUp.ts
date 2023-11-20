@@ -14,7 +14,7 @@ const signUp = {
       nameLabel: 'Enter your Name',
       emailLabel: 'Enter Email',
       passwordLabel: 'Enter Password',
-      confirmPasswordLabel: 'Confirm your Password',
+      passwordConfirmLabel: 'Confirm your Password',
     },
     signButton: 'Sign Up',
 

@@ -9,7 +9,7 @@ export type SignUp = {
       nameLabel: string,
       emailLabel: string,
       passwordLabel: string,
-      confirmPasswordLabel: string,
+      passwordConfirmLabel: string,
     }
     signButton: string,
 

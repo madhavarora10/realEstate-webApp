@@ -8,7 +8,7 @@ type Props = {
 };
 export const LoginCard = (props) => {
   const { heros }:Props = props;
-  console.log(heros);
+  // console.log(heros);
 
   return (
     <div className="flex gap-52 relative ">

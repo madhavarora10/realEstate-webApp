@@ -1,6 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import '../../styles/globals.scss';
 import type { Metadata } from 'next';
+import { AuthProvider } from '../common/components/AuthProvider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

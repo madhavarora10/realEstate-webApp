@@ -4,22 +4,28 @@
 /* eslint-disable react/no-array-index-key */
 import Link from 'next/link';
 import _ from 'lodash';
+import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 import classes from './navbar.module.scss';
 import Sidebars from './sidebar-sm';
 import NavLinks from '../Button/NavLinks';
 import { Scroll } from '../Scroll';
 // import { MapMethod } from '../../utils/map-function';
 import ButtonBasic from '../Button/ButtonBasic';
+import { isLoggedClient } from '../../utils/isLoggedClient';
+import { DropdownMenu } from '../Dropdown';
 
 type NavBannerProps = {
   heros: any
 };
-
+isLoggedClient();
 const NavBanner = (props: NavBannerProps) => {
   const {
     heros,
   } = props;
   const latestScrollValue = Scroll();
+  const { data: session, status } = useSession();
+  console.log(status);
   if (_.isEmpty(heros) === true) {
     return null;
   }
@@ -45,11 +51,19 @@ const NavBanner = (props: NavBannerProps) => {
 
         </div>
 
-        <div className="flex gap-4">
-          <ButtonBasic className="flex justify-center items-center   border-none  text-primary text-center  hover:bg-f7f9fc transition-colors  px-5 py-3 rounded-[30px] leading-6 m-0 text-fs-0.875 font-wt-400 font-inter break-normal cursor-pointer" href={heros.loginLinks.link} textContent={heros.loginLinks.label} />
-          <ButtonBasic textContent={heros.signupLinks.label} href={heros.signupLinks.link} className="flex drop-shadow-md hover:drop-shadow-none justify-center items-center bg-primary  border-none  font  text-white   transition-colors  px-5 py-3 rounded-2xl leading-6 m-0 text-fs-0.875 font-wt-400 font-inter break-normal cursor-pointer" />
+        {status === 'authenticated' ? (
+          <div>
+            <div className=" cursor-pointer">
+              <DropdownMenu img={heros.userImg} itemArray={heros.itemsArray} />
+            </div>
+          </div>
+        ) : (
+          <div className="flex gap-4">
+            <ButtonBasic className="flex justify-center items-center   border-none  text-primary text-center  hover:bg-f7f9fc transition-colors  px-5 py-3 rounded-[30px] leading-6 m-0 text-fs-0.875 font-wt-400 font-inter break-normal cursor-pointer" href={heros.loginLinks.link} textContent={heros.loginLinks.label} />
+            <ButtonBasic textContent={heros.signupLinks.label} href={heros.signupLinks.link} className="flex drop-shadow-md hover:drop-shadow-none justify-center items-center bg-primary  border-none  font  text-white   transition-colors  px-5 py-3 rounded-2xl leading-6 m-0 text-fs-0.875 font-wt-400 font-inter break-normal cursor-pointer" />
 
-        </div>
+          </div>
+        )}
       </div>
     </>
   );

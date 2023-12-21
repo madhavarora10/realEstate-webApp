@@ -29,7 +29,7 @@ const navbar = {
 
   ],
   signupLinks: {
-    label: 'Sign In',
+    label: 'Sign Up',
     link: PAGES.SIGN_UP,
   },
   loginLinks: {
@@ -38,6 +38,18 @@ const navbar = {
     link: PAGES.LOGIN,
 
   },
-
+  userImg: '/home-page/user-img.png',
+  itemsArray: [
+    {
+      label: 'Profile',
+      link: '/profile',
+      key: '0',
+    },
+    {
+      label: 'My Listings',
+      link: '/listings',
+      key: '1',
+    },
+  ],
 };
 export { navbar };

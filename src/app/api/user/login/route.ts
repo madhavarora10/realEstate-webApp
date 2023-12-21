@@ -25,10 +25,8 @@ export async function POST(request:Request, res:NextApiResponse) {
     if (!userLogin || !(await userLogin.correctPassword(password, userLogin.password))) {
       return NextResponse.json({ message: 'Incorrect email or password' }, { status: 400 });
     }
-    const { token, user, cookieOptions } = createSendToken(userLogin);
-    if (!token || !user) { return NextResponse.json({ message: 'error in token or user' }, { status: 400 }); }
-    const response = NextResponse.json({ message: 'created ', user, token }, { status: 200 });
-    response.cookies.set('jwt', token, cookieOptions);
+    userLogin.password = undefined;
+    const response = NextResponse.json({ message: 'Logged In ', userLogin }, { status: 200 });
     return response;
   } catch (error) {
     console.log(error);

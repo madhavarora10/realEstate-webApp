@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import joi from '@hapi/joi';
+import { signIn } from 'next-auth/react';
 import InputButton from '../../../../common/components/Button/InputButton';
 import { loginUser } from '../../../../../libs/userData';
 import Spinner from '../../../../common/components/Spinner';
@@ -17,7 +18,6 @@ type Props = {
   }
 };
 type FormValues = {
-  name: string;
   email: string;
   password:string,
 };
@@ -33,9 +33,14 @@ export default function LoginForm(props:Props) {
   const {
     register, reset, handleSubmit, formState: { errors },
   } = useForm<FormValues>({ resolver: joiResolver(schema) });
-  const onSubmit = handleSubmit(async (data) => {
+  const onSubmit = handleSubmit(async (data:FormValues) => {
     setLoading(true);
-    const res = await loginUser(data);
+    const res = await signIn('credentials', {
+      email: data.email,
+      password: data.password,
+    });
+    // console.log(res);
+    // const res = await loginUser(data);
     reset();
     setLoading(false);
     // console.log(res);

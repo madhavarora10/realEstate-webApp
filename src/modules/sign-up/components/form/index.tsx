@@ -31,9 +31,12 @@ export default function SignUpForm() {
   const {
     register, reset, handleSubmit, formState: { errors },
   } = useForm<FormValues>({ resolver: joiResolver(schema) });
-  const onSubmit = handleSubmit(async (data) => {
+  const onSubmit = handleSubmit(async (data:FormValues) => {
     setLoading(true);
     const res = await createUser(data);
+    if (res.status !== 200) {
+      console.log('error');
+    }
     reset();
     setLoading(false);
     // console.log(data);

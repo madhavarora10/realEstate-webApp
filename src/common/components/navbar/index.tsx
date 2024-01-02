@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 'use client';
 
 /* eslint-disable react-hooks/rules-of-hooks */
@@ -25,7 +26,7 @@ const NavBanner = (props: NavBannerProps) => {
   } = props;
   const latestScrollValue = Scroll();
   const { data: session, status } = useSession();
-  console.log(status);
+  // console.log(status);
   if (_.isEmpty(heros) === true) {
     return null;
   }
@@ -54,7 +55,7 @@ const NavBanner = (props: NavBannerProps) => {
         {status === 'authenticated' ? (
           <div>
             <div className=" cursor-pointer">
-              <DropdownMenu img={heros.userImg} itemArray={heros.itemsArray} />
+              <DropdownMenu img={session.user.image ? `/profiles/${session.user.image}` : heros.userImg} itemArray={heros.itemsArray} />
             </div>
           </div>
         ) : (

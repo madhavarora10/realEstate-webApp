@@ -11,11 +11,12 @@ import { getToken } from 'next-auth/jwt';
 import { NextResponse } from 'next/server';
 
 export async function middleware(req) {
-  const token = await getToken({ req });
+  const token = await getToken({ req, raw: true });
   const isAuthenticated = !!token;
   if ((req.nextUrl.pathname.startsWith('/login') || req.nextUrl.pathname.startsWith('/sign-up')) && isAuthenticated) {
     return NextResponse.redirect(new URL('/', req.url));
   }
+  if ((req.nextUrl.pathname.startsWith('/profile')) && !isAuthenticated) { return NextResponse.redirect(new URL('/', req.url)); }
   return NextResponse.next();
 }
 
@@ -26,7 +27,7 @@ export default withAuth({
   },
 });
 export const config = {
-  matcher: [ '/login', '/sign-up'],
+  matcher: ['/login', '/sign-up', '/profile'],
 };
 // // console.log('from middleware');
 // export default function middleware(){};

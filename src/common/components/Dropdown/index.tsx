@@ -31,8 +31,8 @@ export const DropdownMenu = (props) => {
 
     <Dropdown menu={{ items }} trigger={['click']}>
       <Space>
-        <div className="relative rounded-full  border w-14 h-14">
-          <Image src={img} fill alt="user" />
+        <div className="relative rounded-full  border-2 object-contain w-14 h-14">
+          <Image src={img} fill alt="user" className=" object-contain object-center rounded-full" />
         </div>
       </Space>
     </Dropdown>

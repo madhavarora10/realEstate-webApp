@@ -30,11 +30,11 @@ const Map = (props:Propstype) => {
     map.current = new maptilersdk.Map({
       container: mapContainer.current,
       style: maptilersdk.MapStyle.STREETS,
-      center: [lng, lat],
+      center: [lat, lng],
       zoom,
     });
     new maptilersdk.Marker()
-      .setLngLat([lng, lat])
+      .setLngLat([lat, lng])
       .addTo(map.current);
   }, [lng, lat, zoom]);
 

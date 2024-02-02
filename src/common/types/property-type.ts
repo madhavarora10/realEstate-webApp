@@ -19,8 +19,7 @@ export type PropertyType = {
   priceDiscount:number | undefined,
   imageCover:string,
   images: [string],
-  createdAt: Date,
-  location: string,
+  createdAt: Date
   coordinates: [lat:number, lng:number],
   dateAvailable: Date,
   type:string | undefined,

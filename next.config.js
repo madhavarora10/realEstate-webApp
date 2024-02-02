@@ -6,8 +6,8 @@ const nextConfig = {
   appDir: true,
  },
  webpack(config) {
-  // config.resolve.fallback={...config.resolve.fallback,}
-  config.experiments = { ...config.experiments, topLevelAwait: true }
+  config.resolve.fallback={...config.resolve.fallback,fs: false,}
+  config.experiments = { ...config.experiments, topLevelAwait: true,  }
   return config
 },
   reactStrictMode: true,

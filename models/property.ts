@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 // Creating a mongoose model
 const propertySchema = new mongoose.Schema(
@@ -9,7 +9,7 @@ const propertySchema = new mongoose.Schema(
       unique: true,
       trim: true,
       maxlength: [150, 'A property name must have less or equal then 150 characters'],
-      minlength: [5, 'A property name must have more or equal then 10 characters'],
+      minlength: [5, 'A property name must have more or equal then 5 characters'],
       // validate: [validator.isAlpha, 'Tour name must only contain characters']
     },
     description: {
@@ -32,15 +32,15 @@ const propertySchema = new mongoose.Schema(
     },
     yearBuilt: {
       type: Number,
-      default: 'not Available',
+      default: undefined,
     },
     squareArea: {
       type: Number,
-      default: 'not Available',
+      default: undefined,
     },
     lotSize: {
       type: Number,
-      default: 'not Available',
+      default: undefined,
 
     },
     parkingArea: {
@@ -65,7 +65,7 @@ const propertySchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      required: [true, 'A property must have a status'],
+      default: 'Active',
       enum: {
         values: ['Active', 'deActivated'],
         message: 'Status is either: Active, deActivated',
@@ -89,43 +89,28 @@ const propertySchema = new mongoose.Schema(
       type: String,
       default: 'Modern Loft',
     },
-    // priceDiscount: {
-    //   type: Number,
-    //   validate: {
-    //     validator(val:number) {
-    //       // this only points to current doc on NEW document creation
-    //       return val < this.price;
-    //     },
-    //     message: 'Discount price ({VALUE}) should be below regular price',
-    //   },
-    // },
     imageCover: {
       type: String,
-      required: [true, 'A tour must have a cover image'],
+      default: undefined,
     },
-    images: [String],
+    images: {
+      type: [String],
+      default: undefined,
+    },
     createdAt: {
       type: Date,
       default: Date.now(),
       select: false,
     },
-    // location: {
-    //   // GeoJSON
-    //   type: {
-    //     type: String,
-    //     default: 'Point',
-    //     enum: ['Point'],
-    //   },
-    // },
-    coordinates: [Number],
-    Available: {
-      type: String,
+    coordinates: {
+      type: [Schema.Types.Decimal128],
+      default: undefined,
     },
     type: {
       type: String,
       enum: {
-        values: ['Home', 'TownHouse', 'Flat'],
-        message: 'Status is either: Home, TownHouse, flat',
+        values: ['House', 'TownHouse', 'Flat'],
+        message: 'Status is either: House, TownHouse, flat',
       },
     },
     date: {
@@ -158,12 +143,10 @@ const propertySchema = new mongoose.Schema(
       default: 'Not Available',
     },
 
-    // agent: [
-    //   {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: 'Agent',
-    //   },
-    // ],
+    agent: {
+      type: Schema.Types.ObjectId,
+      ref: 'users',
+    },
 
   },
   {
@@ -172,40 +155,16 @@ const propertySchema = new mongoose.Schema(
   },
 );
 
-// // 11.21 for icreasing the speed of query
-// tourSchema.index({ price: 1, ratingsAverage: -1 });
-// tourSchema.index({ startLocation: '2dsphere' });
-
-// tourSchema.virtual('durationWeeks').get(function () {
-//   return this.duration / 7;
-// });
-
-// Virtual populate
-// tourSchema.virtual('reviews', {
-//   ref: 'Review',
-//   foreignField: 'tour',
-//   localField: '_id',
-//   strict: false,
-// });
-
-// tourSchema.pre('save', function (next) {
-//   this.slug = slugify(this.name, { lower: true });
-//   next();
-// });
-
-// tourSchema.pre('save',async function(next){
-//   const guidesPromises=this.guides.map(async id=> await User.findById(id));
-//   this.guides=await Promise.all(guidesPromises);
-//   next();
-// });
-
 // Documents Middleware: runs before .save()and .create()
-// tourSchema.pre(/^find/, function (next) {
-//   this.find({ secretTour: { $ne: true } });
+
+// propertySchema.pre(/^find/, function (next) {
+//   this.populate({
+//     path: 'guides',
+//     select: '-__v -passwordChangeAt',
+//   });
 //   next();
 // });
-
-// tourSchema.pre(/^find/, function (next) {
+// propertySchema.pre('aggregate', function (next) {
 //   this.populate({
 //     path: 'guides',
 //     select: '-__v -passwordChangeAt',

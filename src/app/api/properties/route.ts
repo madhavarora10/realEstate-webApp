@@ -1,19 +1,81 @@
+/* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable object-shorthand */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-server-import-in-page */
 
-import { NextResponse } from 'next/server';
+import { typeOf } from '@maptiler/sdk';
+import { writeFile } from 'fs/promises';
+import { NextRequest, NextResponse } from 'next/server';
 import connectMongoDB from '../../../../libs/mongodb';
 import { Property } from '../../../../models/property';
+import { imageUpload } from '../../../common/helpers/imagesUpload';
 import { fieldType, fieldTypeParams } from '../../../common/types';
 import { PropertyType } from '../../../common/types/property-type';
 
-export async function POST(request:Request) {
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
+export async function POST(request) {
   try {
-    const body:PropertyType = await request.json();
+    const formData:FormData = await request.formData();
+    const imageCoverFile = formData.get('imageCover') as File | null;
+    const image1 = formData.get('image1') as File | null;
+    const image2 = formData.get('image2') as File | null;
+    const image3 = formData.get('image3') as File | null;
+    const image4 = formData.get('image4') as File | null;
+    const image5 = formData.get('image5') as File | null;
+    const coordinate1 = formData.get('coordinate1') as unknown as number | undefined;
+    const coordinate2 = formData.get('coordinate2') as unknown as number | undefined;
+
+    // console.log(imagesArray);
+
+    const body:Record<string, string | File | Array<string | number> | number> = Object.fromEntries(formData.entries());
+    body.imageCover = undefined;
+    delete body.image1;
+    delete body.image2;
+    delete body.image3;
+    delete body.image4;
+    delete body.image5;
+    body.images = undefined;
+    // console.log( ' from res',body);
+    if (!body) { return NextResponse.json({ message: 'body is empty or there is some error' }, { status: 404 }); }
+
+    if (imageCoverFile) {
+      const filename:string = Date.now() + imageCoverFile.name.replaceAll(' ', '_');
+      body.imageCover = filename;
+      await imageUpload(imageCoverFile, 'public/properties-images/image-covers/', filename);
+    }
+    if (image1 && image2 && image3 && image4 && image5) {
+      const imagesArray:Array<File> | null = [image1, image2, image3, image4, image5];
+      // console.log(imagesArray);
+      // console.log('from imagesArray');
+      const images:Array<string> = [];
+      imagesArray?.map(async (item) => {
+        const filename:string = Date.now() + item?.name.replaceAll(' ', '_');
+        images.push(filename);
+        await imageUpload(item, 'public/properties-images/images/', filename);
+      });
+
+      body.images = images;
+    }
+    body.coordinates = [coordinate1, coordinate2];
+
+    delete body.coordinates1;
+    delete body.coordinates2;
+
     // console.log(body);
+
     await connectMongoDB();
-    await Property.insertMany([body]);
+
+    const res = await Property.insertMany([body]);
+
+    if (!res) {
+      return NextResponse.json({ message: 'Something went wrong' }, { status: 404 });
+    }
+    // console.log(res);
     return NextResponse.json({ message: 'created' }, { status: 200 });
   } catch (error) {
     console.log(error);
@@ -28,7 +90,25 @@ export async function GET(request:Response) {
   // const priceGte = Number(searchParams.get('priceGte'));
   const priceLte = Number(searchParams.get('priceLte'));
   const pipeline = [
-    { $match: { city: location, type: propertyType, price: { $lte: priceLte } } },
+    {
+      $match: { city: location, type: propertyType, price: { $lte: priceLte } },
+    },
+    {
+      $lookup: {
+        from: 'users',
+        localFiled: 'agent',
+        foreignField: '_id',
+        as: 'agent_details',
+      },
+    },
+    // {
+    //   $addFields: {
+    //     agent_details: {
+    //       $arrayElementAt: ['$agent_details', 0],
+    //     },
+
+    //   },
+    // },
   ];
 
   try {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { DownOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import type { MenuProps } from 'antd';
 import { Dropdown, Space } from 'antd';

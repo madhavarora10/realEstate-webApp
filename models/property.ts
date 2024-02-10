@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable no-param-reassign */
 import mongoose, { Schema } from 'mongoose';
 
 // Creating a mongoose model
@@ -157,17 +159,17 @@ const propertySchema = new mongoose.Schema(
 
 // Documents Middleware: runs before .save()and .create()
 
-// propertySchema.pre(/^find/, function (next) {
-//   this.populate({
-//     path: 'guides',
-//     select: '-__v -passwordChangeAt',
-//   });
-//   next();
-// });
+propertySchema.pre('findOne', function (next) {
+  this.populate({
+    path: 'agent',
+    select: '-__v -password',
+  });
+  next();
+});
 // propertySchema.pre('aggregate', function (next) {
 //   this.populate({
-//     path: 'guides',
-//     select: '-__v -passwordChangeAt',
+//     path: 'users',
+//     select: '-__v -password',
 //   });
 //   next();
 // });

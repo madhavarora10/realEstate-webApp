@@ -38,19 +38,19 @@ export type propertyView = {
     },
   },
   features: {
-    heading: 'Rental Features',
-    listedLabel: 'Listed on ',
-    dateLabel: 'Date available ',
-    typeLabel: ' Type ',
-    laundryLabel: ' Laundry ',
-    coolingLabel: 'Cooling',
-    heatingLabel: 'Heating',
-    cityLabel: 'City',
-    yearLabel: 'Year Built',
-    countryLabel: 'Country',
-    sizeLabel: 'Lot Size',
-    parkingLabel: 'Parking Area',
-    codeLabel: 'Pin code',
+    heading: string,
+    listedLabel: string,
+    dateLabel: string,
+    typeLabel: string,
+    laundryLabel: string,
+    coolingLabel: string,
+    heatingLabel: string,
+    cityLabel: string,
+    yearLabel: string,
+    countryLabel: string,
+    sizeLabel: string,
+    parkingLabel: string,
+    codeLabel: string,
   },
   bedrooms: {
     label:string,
@@ -75,6 +75,8 @@ export type propertyView = {
   mapHeading: string,
   privacyText: string,
   heading: string,
+  listedHeading:string,
+  pfpImage:string
 
 };
 export type PropertyPageProps = {
@@ -104,4 +106,15 @@ export type requestCard = {
       link: string,
     },
   },
+};
+
+export type AgentCardProps = {
+  placeholder:string,
+  heading:string,
+  data:{
+    id: number;
+    name: string;
+    email: string;
+    active: string
+  }
 };

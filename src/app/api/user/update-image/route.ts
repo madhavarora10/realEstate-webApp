@@ -37,9 +37,10 @@ export async function PUT(req, res) {
     console.log(error);
   }
 }
-// Important for NextJS!
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// // Important for NextJS!
+// export const config = {
+//   api: {
+//     bodyParser: false,
+//   },
+// };
+

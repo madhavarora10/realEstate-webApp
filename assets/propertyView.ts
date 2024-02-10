@@ -93,6 +93,7 @@ const propertyView = {
   mapHeading: 'Map',
   heading: 'About this home',
   privacyText: "You agree to Terms of Use & Privacy Policy. By choosing to contact a property, you also agree that landlords, and property managers may call or text you about any inquiries you submit through our services, which may involve use of automated means and prerecorded/artificial voices. You don't need to consent as a condition of renting any property, or buying any other goods or services. Message/data rates may apply.",
-
+  listedHeading: 'Listed By Agent:',
+  pfpImage: '/place-holder/pfp2.png',
 };
 export { propertyView };

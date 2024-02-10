@@ -2,13 +2,10 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/alt-text */
-import Link from 'next/link';
 import _ from 'lodash';
 import React from 'react';
 import Image from 'next/image';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
-import classes from './reviewSection.module.scss';
-import { CardInfo } from '../../../../common/components/Card/CardInfo';
 import { Heading } from '../../../../common/components/Headings/Heading';
 import { SubHeading } from '../../../../common/components/Headings/SubHeading';
 import { ArrayObjectsType } from '../../../../common/types';
@@ -33,11 +30,11 @@ const ReviewSection = (props: ReviewSectionProps) => {
   return (
     <div className="element__container ">
       <Heading textContent={heros.heading} />
-      <div className="flex justify-between items-center text-primary font-primaryRegular text-fs-1.15">
-        <SubHeading textContent={heros.subHeading} className="text-fs-3 pt-8 pb-12" />
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center text-primary font-primaryRegular text-fs-1.15">
+        <SubHeading textContent={heros.subHeading} className="text-fs-3 pt-8  pb-1 lg:pb-12" />
         <ButtonBasic textContent={heros.button?.label} href={heros.button?.href} className="p-4 gap-2 font-wt-500 leading-lh-1.5" addOnAfter={<IoIosArrowDroprightCircle />} />
       </div>
-      <div className="flex justify-between  gap-4  ">
+      <div className="flex flex-col  lg:flex-row justify-between  gap-4  ">
         {heros.cards.map((el:ArrayObjectsType, index:number) => (
           <div className=" max-w-xs p-4 pb-14 relative border-2 border-card-border " key={index}>
             <Image src={el.commasImage.url} width={el.commasImage.width} height={el.commasImage.height} alt={el.commasImage.alt} />

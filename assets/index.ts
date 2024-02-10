@@ -55,75 +55,16 @@ const index = {
       href: '/',
     },
   },
-  middlePage: {
+  Newsletter: {
     showMobile: MOBILE_STATUS.ENABLE,
     status: STATUS.ENABLE,
-    learnButton: {
-      label: 'Learn More',
-      href: '/',
+    heading: 'Subscribe Our Newsletter',
+    descp: 'Discover our exclusive selection of the finest one-of-a-kind luxury properties architectural masterpieces. Lorem ipsum dolor sit amet consectetur. Feugiat ut aliquet sit pellentesque sollicitudin. Egestas faucibus lacus diam in senectus consectetur. Mattis elit adipiscing quisque tellus scelerisque vehicula ante nunc.',
+    emailInput: {
+      placeholder: "Enter your Email",
+      buttonText: 'Get a Quote',
     },
-    heading: 'Discover',
-    subHeading: 'Best recomendation',
-    descp: 'Discover our exclusive selection of the finest one-of-a-kind luxury properties architectural masterpieces.',
-    cards: [
-      {
-        popular: true,
-        img: {
-          url: '/home-page/houseimage1.png',
-          height: '248',
-          width: '348',
-          alt: 'house Image',
-        },
-        heading: 'Beverly Springfield',
-        location: '2821 Green valley, Highland Lake,Fl',
-        price: '$2700 /month',
-        area: {
-          text: '6x7 m',
-          areaSpace: 'Living Area',
-        },
-        button: {
-          link: '/',
-          text: 'View More',
-        },
-      },
-      {
-        popular: true,
-        img: {
-          url: '/home-page/houseimage2.png',
-          height: '248',
-          width: '348',
-          alt: 'house Image',
-        },
-        heading: 'Faulkner Ave',
-        location: '909 Wooodland, Michigan,Fl',
-        price: '$4500 /month',
-        area: {
-          text: '8x10 m',
-          areaSpace: 'Living Area',
-        },
-        button: {
-          link: '/',
-          text: 'View More',
-        },
-      },
-      {
-        popular: true,
-        img: {
-          url: '/home-page/houseimage3.png',
-          height: '248',
-          width: '348',
-          alt: 'house Image',
-        },
-        heading: 'Palm Harbor',
-        location: '2699 Green valley, Highland Lake,Fl',
-        price: '$2400 /month',
-        area: { text: '5x7 m', areaSpace: 'Living Area' },
-        button: {
-          link: '/',
-          text: 'View More',
-        },
-      },
-    ],
+    houseImage: "/home-page/3d-house.png",
   },
   middlePage2: {
     showMobile: MOBILE_STATUS.ENABLE,

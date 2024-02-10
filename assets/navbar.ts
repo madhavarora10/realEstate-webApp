@@ -11,11 +11,11 @@ const navbar = {
       link: PAGES.HOME,
     },
     {
-      label: 'Property',
+      label: 'Buy Properties',
       link: PAGES.PROPERTY,
     },
     {
-      label: 'About',
+      label: 'Sell',
       link: PAGES.ABOUT_US,
     },
     {

@@ -55,7 +55,8 @@
     "styled-components": "5.3.11",
     "swiper": "9.4.1",
     "ts-node": "10.9.1",
-    "validator": "13.11.0"
+    "validator": "13.11.0",
+    "zustand": "^4.5.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.5",

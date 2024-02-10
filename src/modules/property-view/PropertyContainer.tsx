@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import React from 'react';
 import PropertyView from './PropertyView';
 // import { LoadingView } from '../../common/components/LoadingView';
@@ -8,7 +7,7 @@ const PropertyContainer = (props:any) => {
     response,
     doc,
   } = props;
-  // console.log(response);
+  // console.log('fromdocs',doc);
   return (
     <div>
       <PropertyView response={response} doc={doc} />

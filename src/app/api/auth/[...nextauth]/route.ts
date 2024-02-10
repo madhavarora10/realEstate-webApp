@@ -24,7 +24,7 @@ export const authOptions:NextAuthOptions = {
           if (userLogged) {
             // console.log('from' ,userLogged);
             const user = {
-              id: userLogged.name, name: userLogged.userLogin.name, email: userLogged.userLogin.email, image: userLogged.userLogin.photo,
+              id: userLogged.id, name: userLogged.userLogin.name, email: userLogged.userLogin.email, image: userLogged.userLogin.photo,
             };
             return Promise.resolve(user);
           }

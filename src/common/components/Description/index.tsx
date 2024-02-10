@@ -11,7 +11,7 @@ export const Description = (props:DescriptionProps) => {
     className,
   } = props;
   return (
-    <h1 className={`    mt-4 text-descp-color font-primaryRegular text-fs-1 font-wt-400 leading-6 ${className} `}>
+    <h1 className={` mt-4 text-descp-color font-primaryRegular text-fs-1 font-wt-400 leading-6 ${className} `}>
       {textContent}
     </h1>
   );

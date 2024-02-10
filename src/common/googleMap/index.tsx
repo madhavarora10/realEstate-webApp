@@ -20,7 +20,7 @@ const Map = (props:Propstype) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lat, lng] = coordinates;
-  // console.log(coordinates);
+  console.log(coordinates);
   const [zoom] = useState(8);
   maptilersdk.config.apiKey = '7AfXUElR7W3GAfFoOGrW';
 
@@ -30,11 +30,11 @@ const Map = (props:Propstype) => {
     map.current = new maptilersdk.Map({
       container: mapContainer.current,
       style: maptilersdk.MapStyle.STREETS,
-      center: [lat, lng],
+      center: [lng, lat],
       zoom,
     });
     new maptilersdk.Marker()
-      .setLngLat([lat, lng])
+      .setLngLat([lng, lat])
       .addTo(map.current);
   }, [lng, lat, zoom]);
 
@@ -51,27 +51,24 @@ const MapAll = (props:PropsMapAll) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
   // const [lat, lng] = coordinates;
-  // console.log(coordinates);
-  const [zoom] = useState(7);
+  // console.log(coordinatesArray);
+  const [zoom] = useState(8);
   maptilersdk.config.apiKey = '7AfXUElR7W3GAfFoOGrW';
 
   useEffect(() => {
     if (map.current) return; // stops map from intializing more than once
-
+    const [latCenter, lngCenter] = coordinatesArray[0];
+    // setCenter(coordinatesArray[0].reverse() as [number, number]);
     map.current = new maptilersdk.Map({
       container: mapContainer.current,
       style: maptilersdk.MapStyle.STREETS,
-      center: coordinatesArray[0] as [number, number],
+      center: [lngCenter, latCenter],
       zoom,
     });
-    console.log(props);
-    coordinatesArray.map((el:[number, number]) => (
-      // console.log(el)
-      new maptilersdk.Marker()
-        .setLngLat(el)
-        .addTo(map.current)
-
-    ));
+    coordinatesArray?.forEach((el:[number, number]) => {
+      const [lat, lng] = el;
+      const marker = new maptilersdk.Marker().setLngLat([lng, lat]).addTo(map.current);
+    });
   }, [coordinatesArray]);
 
   return (

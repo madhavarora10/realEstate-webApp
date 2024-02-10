@@ -38,7 +38,7 @@ export const ProfilePage = (props) => {
       <div className=" bg-white w-full py-8 px-4 flex flex-col items-center ">
         <h1 className="  font-wt-600 text-fs-2 text-primaryDark">{heros.body.heading}</h1>
         <div className=" w-106 mt-8">
-          <UpdateForm  modalContent={heros.body.nameModalContent} session={session} labels={heros.body.form} />
+          <UpdateForm modalContent={heros.body.nameModalContent} labels={heros.body.form} />
         </div>
         <h1 className=" mt-4 font-wt-600 text-fs-2 text-primaryDark">{heros.body.heading2}</h1>
         <div className=" w-106 mt-8">

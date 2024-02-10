@@ -54,6 +54,9 @@ module.exports = {
        'primary-bg':'var( --clr-primary-bg)',
        'd4fff0':'var(--clr-d4fff0)',
        'F7f7FD':'var(--clr-F7f7FD)',
+       'C1DEE8':'var(--clr-C1DEE8)',
+       'DDDCD1':'var(--clr-DDDCD1)',
+       'C1DEE8':'var(--clr-C1DEE8)',
        
 
         // colors map

@@ -1,15 +1,15 @@
-export type PropertyType = {
+export type PropertyTypeSingle = {
   _id:number | undefined,
   name: string,
   description:string,
   city:string,
+  country:string,
   yearBuilt:string | undefined,
-  size:string | undefined,
   lotSize:string | undefined,
   parkingArea: string | undefined,
   deposit: string,
   address: string,
-  pincode:number,
+  pinCode:number,
   status:string,
   bedrooms: number | undefined,
   bathrooms:number | undefined,
@@ -21,11 +21,17 @@ export type PropertyType = {
   images: [string],
   createdAt: Date
   coordinates: [lat:number, lng:number],
-  dateAvailable: Date,
+  dateAvailable: string,
   type:string | undefined,
-  date: Date,
+  date: Date | string,
   laundry: string | undefined,
   cooling: string | undefined,
   heating: string | undefined,
-
+  agent_details:{
+    id:number,
+    name:string,
+    email:string,
+    active:string
+  }
 };
+export type PropertyType = Array<PropertyTypeSingle>;

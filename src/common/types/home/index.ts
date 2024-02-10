@@ -19,27 +19,17 @@ export type topPageType = {
   ] ;
   searchButton: MyObject,
 };
-export type middlePageType = {
+export type NewsletterType = {
   showMobile: number,
   status: number,
-  learnButton: MyObject,
   heading: string,
-  subHeading:string,
   descp: string,
-  cards: [
-    {
-      popular: boolean,
-      img: imgObj,
-      heading: string,
-      location: string,
-      price: string,
-      area: {
-        text: string,
-        areaSpace: string,
-      },
-      button: buttonObj,
-    },
-  ],
+  houseImage:string,
+  emailInput:{
+    buttonText:string,
+    placeholder:string
+  }
+ 
 };
 
 export type middlePage2Type = {
@@ -96,7 +86,6 @@ export type options = {
 };
 export type fieldType = {
   location:string,
-  priceGte:string,
   priceLte:string,
   propertyType:string,
 };

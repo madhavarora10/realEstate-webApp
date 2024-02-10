@@ -10,7 +10,7 @@ type CardsProps = {
   button?:{ [key:string]:string },
 };
 
-export const CardInfo:React.FC = (props:CardsProps) => {
+export const CardInfo:React.FC<CardsProps> = (props:CardsProps) => {
   const {
     img,
     heading,

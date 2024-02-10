@@ -9,7 +9,7 @@ type SelectProps = {
   className?:string,
   placeholder?:string,
   func?:(value:object)=>void,
-  label:string
+  label?:string
 };
 export const SelectDefault = (props:SelectProps) => {
   const {

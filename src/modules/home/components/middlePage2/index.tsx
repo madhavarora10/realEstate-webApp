@@ -14,7 +14,7 @@ type middlePage2Props = {
 };
 // {props.stauts === STATUS.ACTIVE ? "hidden__mobile" :""}
 
-const middlePage2 = (props: middlePage2Props) => {
+const MiddlePage2 = (props: middlePage2Props) => {
   const {
     heros,
   } = props;
@@ -29,7 +29,7 @@ const middlePage2 = (props: middlePage2Props) => {
     <div className="element__container bg-primary-bg">
       <Heading textContent={heros.heading} />
       <SubHeading textContent={heros.subHeading} className="text-fs-3" />
-      <div className=" mt-8 flex flex-wrap gap-24">
+      <div className=" mt-8 justify-center flex flex-wrap gap-12 lg:gap-24">
         {heros.cards?.map((el, index:number) => (
           <div key={index}>
             <CardInfo heading={el.heading} img={el.icon} descp={el.descp} />
@@ -42,4 +42,4 @@ const middlePage2 = (props: middlePage2Props) => {
   );
 };
 
-export default middlePage2;
+export default MiddlePage2;

@@ -5,22 +5,33 @@
 
 import { typeOf } from '@maptiler/sdk';
 import { writeFile } from 'fs/promises';
+import { ObjectId } from 'mongoose';
 import { NextRequest, NextResponse } from 'next/server';
 import connectMongoDB from '../../../../libs/mongodb';
 import { Property } from '../../../../models/property';
+import { User } from '../../../../models/user';
 import { imageUpload } from '../../../common/helpers/imagesUpload';
 import { fieldType, fieldTypeParams } from '../../../common/types';
 import { PropertyType } from '../../../common/types/property-type';
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// export const config = {
+//   api: {
+//     bodyParser: false,
+//   },
+// };
 
 export async function POST(request) {
   try {
     const formData:FormData = await request.formData();
+
+    const agentEmail = formData.get('agent') as string;
+    if (!agentEmail) {
+      return NextResponse.json({ message: 'Email is not provided' }, { status: 401 });
+    }
+    const user = await User.findOne({ email: agentEmail });
+    if (!user) {
+      return NextResponse.json({ message: 'Email is not provided' }, { status: 401 });
+    }
     const imageCoverFile = formData.get('imageCover') as File | null;
     const image1 = formData.get('image1') as File | null;
     const image2 = formData.get('image2') as File | null;
@@ -32,7 +43,8 @@ export async function POST(request) {
 
     // console.log(imagesArray);
 
-    const body:Record<string, string | File | Array<string | number> | number> = Object.fromEntries(formData.entries());
+    const body:Record<string, string | File | Array<string | number> | number | ObjectId> = Object.fromEntries(formData.entries());
+    body.agent = user._id as ObjectId;
     body.imageCover = undefined;
     delete body.image1;
     delete body.image2;
@@ -96,24 +108,35 @@ export async function GET(request:Response) {
     {
       $lookup: {
         from: 'users',
-        localFiled: 'agent',
+        localField: 'agent',
         foreignField: '_id',
         as: 'agent_details',
       },
     },
-    // {
-    //   $addFields: {
-    //     agent_details: {
-    //       $arrayElementAt: ['$agent_details', 0],
-    //     },
+    {
+      $addFields: {
+        // coordinates: { $toString: '$coordinates' },
+        agent_details: {
+          $first: '$agent_details',
+        },
 
-    //   },
-    // },
+      },
+    },
+    {
+      $project: {
+        'agent_details.password': 0,
+      },
+    },
+
   ];
 
   try {
     await connectMongoDB();
-    const docs = await Property.aggregate(pipeline);
+    const docsAll = await Property.aggregate(pipeline);
+    const docs = docsAll.map((item) => ({
+      ...item,
+      coordinates: item.coordinates.map(parseFloat),
+    }));
     return NextResponse.json({ docs }, { status: 200 });
   } catch (error) {
     console.log(error);

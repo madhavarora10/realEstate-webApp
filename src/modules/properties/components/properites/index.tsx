@@ -12,6 +12,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import _ from 'lodash';
 import React, { useState, Suspense } from 'react';
 import { Input } from 'antd';
+import { setCookie } from "cookies-next";
 import { SubHeading } from '../../../../common/components/Headings/SubHeading';
 import { ArrayObjectsType } from '../../../../common/types/hero';
 import { CardBasic } from '../../../../common/components/Card/CardBasic';
@@ -63,17 +64,16 @@ const PropertiesPage = (props: PropertiesPageProps) => {
     formState: { errors },
   } = useForm<any>();
   const onSubmit: SubmitHandler<any> = async (userInput) => {
-    // console.log(userInput);
     const data = await getAllProperties(userInput);
-    // const dataAll = data;
+    // console.log('from docs', data);
     setCardData(data);
-    // console.log(data.docs);
     await data.docs?.map((el) => (
       coords.push(el.coordinates)
     ));
     setCoordsData(coords);
-    // console.log(coords);
-    // console.log(setData);
+    setCookie("location", userInput.location);
+    setCookie("price", userInput.price);
+    setCookie("type", userInput.type);
   };
   const onSearch = (value: string) => setSearchvalue(value);
   // console.log(heros)
@@ -116,7 +116,7 @@ const PropertiesPage = (props: PropertiesPageProps) => {
             <MapAll coordinatesArray={...coordsData} />
           </div>
           <div className=" w-1/2 pl-12 flex flex-col gap-y-12">
-            {cardData?.docs.map((el, index:number) => (
+            {cardData?.docs?.map((el, index:number) => (
               <div key={index}>
                 <Suspense fallback={<Loading />}>
                   <CardMap {...el} />
@@ -127,9 +127,9 @@ const PropertiesPage = (props: PropertiesPageProps) => {
 
         </div>
       ) : (
-        <div className="pt-8 flex gap-4">
+        <div className="pt-8  justify-center flex flex-wrap gap-12">
 
-          {cardData?.docs.map((el, index:number) => (
+          {cardData?.docs?.map((el, index:number) => (
             <div key={index}>
               <Suspense fallback={<Loading />}>
                 <CardBasic {...el} />

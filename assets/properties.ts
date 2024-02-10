@@ -41,11 +41,11 @@ const properties = {
         apiLabel: 'priceLte',
         placeholder: 'price',
         options: [
-          { label: '80,000', value: '80000' },
-          { label: '$100,000', value: '100000' },
-          { label: '$150,000', value: '150000' },
-          { label: '$200,000', value: '200000' },
-          { label: '$250,000+', value: '250000' },
+          { label: '80,000', value: 80000 },
+          { label: '$100,000', value: 100000 },
+          { label: '$150,000', value: 150000 },
+          { label: '$200,000', value: 200000 },
+          { label: '$250,000+', value: 250000 },
         ],
 
       },
@@ -53,9 +53,9 @@ const properties = {
         input: 'inputbox',
         label: 'Property Type',
         apiLabel: 'propertyType',
-        placeholder: 'Houses',
+        placeholder: 'House',
         options: [
-          { label: 'Houses', value: 'Houses' },
+          { label: 'House', value: 'House' },
           { label: 'Townhouses', value: 'Townhouses' },
           { label: 'Flat', value: 'Flat' },
         ],

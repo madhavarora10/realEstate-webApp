@@ -9,6 +9,9 @@ import classes from './topPage.module.scss';
 import { SelectDefault } from '../../../../common/components/Select';
 import ButtonBasic from '../../../../common/components/Button/ButtonBasic';
 import { ArrayObjectsType } from '../../../../common/types/hero';
+import { Heading } from '../../../../common/components/Headings/Heading';
+import { SubHeading } from '../../../../common/components/Headings/SubHeading';
+import { Description } from '../../../../common/components/Description';
 
 type topPageProps = {
   heros: any
@@ -29,11 +32,10 @@ const TopPage = (props: topPageProps) => {
 
   return (
     <div className={` element__container w-full bg-primary-bg overflow-hidden ${classes.bgImage}`}>
-      <h1 className=" font-primaryRegular leading-7  text-primary font-wt-500 text-fs-1.25 ">{heros.heading}</h1>
-      <h1 className=" py-4 mt-8 w-118 font-secondaryRegular text-secondary font-wt-700 text-fs-4 leading-lh-4">
-        {heros.subHeading}
-      </h1>
-      <p className=" mt-4 text-descp-color font-primaryRegular text-fs-1 font-wt-400 leading-6  w-108">{heros.descp}</p>
+      <Heading textContent={heros.heading} />
+      <SubHeading textContent={heros.subHeading} />
+      <Description className=" text-primaryDark" textContent={heros.descp} />
+
       {/* Search Bar */}
       <div className="mt-8">
         <div className=" flex">
@@ -41,18 +43,18 @@ const TopPage = (props: topPageProps) => {
             <button className={`${el.id === activeClass ? classes.activeButton : ' text-center py-3 px-8 inline-flex justify-center items-center gap-3 font-primaryRegular  text-fs-1.25 font-wt-500 leading-8 text-8E8E8E'}`} onClick={() => { setActiveClass(el.id); }} key={index} id={el.id}>{el.label}</button>
           ))}
         </div>
-        <div className=" bg-white py-4 inline-flex px-8">
+        <div className=" bg-white w-full  py-4 flex-row inline-flex px-8">
           {heros.searchBar?.map((el:ArrayObjectsType, i:number) => (
-            <div className="w-40" key={i}>
-              <span className=" text-fs-1.25 font-wt-400 leading-7 font-primaryRegular text-secondary">
+            <div className=" w-20 lg:w-40" key={i}>
+              <span className=" text-fs-0.7 lg:text-fs-1.25 font-wt-400 leading-3 lg:leading-7 font-primaryRegular text-secondary">
                 {el.label}
               </span>
               <div className="">
-                <SelectDefault className="w-24 border-none outline-none" options={el.options} />
+                <SelectDefault className="w-12 lg:w-24 border-none outline-none" options={el.options} />
               </div>
             </div>
           ))}
-          <ButtonBasic textContent={heros.searchButton?.label} href={heros.searchButton?.label} className=" my-auto text-center py-5 px-12 bg-primary ml-8 text-white drop-shadow-buttonType1 " />
+          <ButtonBasic textContent={heros.searchButton?.label} href={heros.searchButton?.label} className=" my-4 lg:my-auto text-fs-0.7 lg:text-fs-1.5 text-center py-2 lg:py-5 px-3 lg:px-12 bg-primary ml-4 lg:ml-8 text-white drop-shadow-buttonType1 " />
         </div>
       </div>
     </div>

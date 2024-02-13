@@ -11,7 +11,7 @@ const SignView = (props) => {
     signUp,
     footer,
   }:SignViewProps = props;
-  console.log(props);
+  // console.log(props);
 
   return (
     <div>

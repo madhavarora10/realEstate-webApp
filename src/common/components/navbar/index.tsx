@@ -11,7 +11,6 @@ import classes from './navbar.module.scss';
 import Sidebars from './sidebar-sm';
 import NavLinks from '../Button/NavLinks';
 import { Scroll } from '../Scroll';
-// import { MapMethod } from '../../utils/map-function';
 import ButtonBasic from '../Button/ButtonBasic';
 import { DropdownMenu } from '../Dropdown';
 

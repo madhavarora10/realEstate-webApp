@@ -159,7 +159,7 @@ const PropertyPage = (props:PropertyPageProps) => {
             <p className=" mt-12 py-4 text-fs-0.7 text-descp-color  text-left">{heros.privacyText}</p>
           </div>
 
-          <div className=" mt-12 w-full  ">
+          <div className=" mt-12 w-full md:w-2/6  ">
             <PriceCard price={doc[0].price} {...heros.requestCard} />
             <AgentCard heading={heros.listedHeading} placeholder={heros.pfpImage} data={doc[0].agent_details} />
 

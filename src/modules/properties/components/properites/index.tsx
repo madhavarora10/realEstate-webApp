@@ -117,7 +117,7 @@ const PropertiesPage = (props: PropertiesPageProps) => {
           </div>
           <div className=" w-full lg:pt-0 pt-10 lg:w-1/2 pl-0 lg:pl-12 flex flex-col lg:items-center gap-y-12">
             {cardData?.docs?.map((el, index:number) => (
-              <div key={index}>
+              <div className=" w-full justify-center" key={index}>
                 <Suspense fallback={<Loading />}>
                   <CardMap {...el} />
                 </Suspense>

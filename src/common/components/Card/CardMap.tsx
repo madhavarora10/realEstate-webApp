@@ -19,8 +19,8 @@ export const CardMap = (props:Partial<PropertyTypeSingle>) => {
   } = props;
   return (
     <Link href={`/properties/${_id}`}>
-      <div className="flex border-card-border relative rounded-md border-2">
-        <div className=" w-1/2 relative">
+      <div className="flex  border-card-border relative  rounded-md border-2">
+        <div className="w-1/2 relative">
           <Image src={`/properties-images/image-covers/${imageCover}`} style={{ borderTopLeftRadius: '6px', borderBottomLeftRadius: '6px' }} fill className="  object-center object-cover  " alt="" />
         </div>
         <div className=" p-5 font-primaryRegular w-full">

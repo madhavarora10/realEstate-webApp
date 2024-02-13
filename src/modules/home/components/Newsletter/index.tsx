@@ -28,7 +28,7 @@ const Newsletter = (props:NewsletterProps) => {
   return (
     <div className="element__container  bg-gradient-to-r from-C1DEE8 from-40% via-DDDCD1 from-20% to-FBD9B9 from-90%  w-full ">
       <div className="flex flex-col-reverse lg:flex-row  ">
-        <div className="text-primary pt-14 font-primaryRegular w-full lg:w-1/2 text-fs-1.15">
+        <div className="text-primary pt-14 lg:pt-6 font-primaryRegular w-full lg:w-1/2 text-fs-1.15">
           <SubHeading textContent={heros.heading} />
           <Description textContent={heros.descp} />
           <div className=" mt-12 flex justify-between w-full lg:w-max rounded-3xl bg-white">
@@ -36,7 +36,7 @@ const Newsletter = (props:NewsletterProps) => {
             <button style={{ backgroundColor: 'black' }} className=" p-4 mr-0 text-fs-0.875 rounded-3xl text-white" type="button">{heros.emailInput.buttonText}</button>
           </div>
         </div>
-        <div className=" border-2 mt-1 lg:mt-8 hidden lg:block lg:h-104 w-full lg:w-1/2 relative">
+        <div className=" mt-1 lg:mt-8 hidden lg:block lg:h-104 w-full lg:w-1/2 relative">
           <Image alt="houseImage" className="  object-contain object-center" src={heros.houseImage} fill />
         </div>
       </div>

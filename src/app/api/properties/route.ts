@@ -23,11 +23,11 @@ import { PropertyType } from '../../../common/types/property-type';
 export async function POST(request) {
   try {
     const formData:FormData = await request.formData();
-
     const agentEmail = formData.get('agent') as string;
     if (!agentEmail) {
       return NextResponse.json({ message: 'Email is not provided' }, { status: 401 });
     }
+    await connectMongoDB();
     const user = await User.findOne({ email: agentEmail });
     if (!user) {
       return NextResponse.json({ message: 'Email is not provided' }, { status: 401 });

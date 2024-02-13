@@ -470,7 +470,13 @@ module.exports = {
         
 
         
-      }
+      },
+      padding: {
+          '13': '3.25rem',
+          '14': '3.5rem',
+          '15': '3.75rem',
+        }
+     
     },
   },
   plugins: [],

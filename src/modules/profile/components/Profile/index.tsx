@@ -18,8 +18,8 @@ export const ProfilePage = (props) => {
   const { data: session }:User = useSession();
   // console.log(session);
   return (
-    <div className="flex gap-4 p-8 ">
-      <div className=" bg-white w-1/3 p-4 flex flex-col items-center ">
+    <div className="flex flex-wrap md:flex-nowrap gap-4 p-8 ">
+      <div className=" bg-white w-full md:w-1/3 p-4 flex flex-col items-center ">
         <h1 className=" font-primaryRegular font-wt-600 text-fs-1.5 text-primaryDark ">
           {session?.user?.name}
         </h1>
@@ -37,11 +37,11 @@ export const ProfilePage = (props) => {
       </div>
       <div className=" bg-white w-full py-8 px-4 flex flex-col items-center ">
         <h1 className="  font-wt-600 text-fs-2 text-primaryDark">{heros.body.heading}</h1>
-        <div className=" w-106 mt-8">
+        <div className=" w-full md:w-106 mt-8">
           <UpdateForm modalContent={heros.body.nameModalContent} labels={heros.body.form} />
         </div>
-        <h1 className=" mt-4 font-wt-600 text-fs-2 text-primaryDark">{heros.body.heading2}</h1>
-        <div className=" w-106 mt-8">
+        <h1 className=" mt-4 font-wt-600 text-center text-fs-2 text-primaryDark">{heros.body.heading2}</h1>
+        <div className=" w-full md:w-106 mt-8">
           <PasswordUpdateForm modalContent={heros.body.modalContent} session={session} labels={heros.body.form} />
         </div>
 

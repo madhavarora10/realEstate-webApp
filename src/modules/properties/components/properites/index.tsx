@@ -85,12 +85,12 @@ const PropertiesPage = (props: PropertiesPageProps) => {
   }
   return (
     <div>
-      <div className="flex justify-between items-center">
+      <div className="flex gap-y-6 lg:gap-y-0 flex-col lg:flex-row lg:justify-between lg:items-center">
         <SubHeading textContent={heros.heading} />
         <Search placeholder={heros.searchBar.placeholder} onSearch={onSearch} style={{ width: 200 }} />
       </div>
       <div className=" mt-8 flex justify-between bg-white p-4 drop-shadow-box2">
-        <form className="flex items-center justify-between w-full" onSubmit={handleSubmit(onSubmit)}>
+        <form className="flex flex-wrap items-center justify-between w-full" onSubmit={handleSubmit(onSubmit)}>
           {heros.searchNav.body.map((el:ArrayObjectsType, index:number) => (
             <div key={index} className="flex flex-col">
               <span className=' pl-4 text-descp-color text-fs-1 font-wt-400 font-primaryRegular break-normal cursor-pointer"'>{el.label}</span>
@@ -105,17 +105,17 @@ const PropertiesPage = (props: PropertiesPageProps) => {
               </select>
             </div>
           ))}
-          <input style={{ backgroundColor: '#69B99D' }} type="submit" className="flex  drop-shadow-md hover:drop-shadow-none justify-center items-center border-none font cursor-pointer  text-white   transition-colors  px-5 py-3 rounded-2xl leading-6 m-0 text-fs-0.875 font-wt-400 font-inter break-normal cursor-pointe bg-primary" />
+          <input style={{ backgroundColor: '#69B99D' }} type="submit" className="flex drop-shadow-md hover:drop-shadow-none justify-center items-center border-none font cursor-pointer mt-4 lg:mt-0   text-white   transition-colors  px-5 py-3 rounded-2xl leading-6 m-0 text-fs-0.875 font-wt-400 font-inter break-normal cursor-pointe bg-primary" />
 
         </form>
       </div>
       {cardData ? <button className=" mt-12 text-primary flex justify-center items-center p-1 rounded-md cursor-pointer border-e3e3e3 border-2  text-fs-0.875 bg-F7f7FD" onClick={handleClick}>{heros.viewMapButton}</button> : ""}
       {mapView ? (
-        <div className=" flex mt-12 gap-0">
-          <div className="w-1/2 h-110">
+        <div className=" flex flex-col  lg:flex-row mt-12 gap-0">
+          <div className=" w-full lg:w-1/2 h-110">
             <MapAll coordinatesArray={...coordsData} />
           </div>
-          <div className=" w-1/2 pl-12 flex flex-col gap-y-12">
+          <div className=" w-full lg:pt-0 pt-10 lg:w-1/2 pl-0 lg:pl-12 flex flex-col lg:items-center gap-y-12">
             {cardData?.docs?.map((el, index:number) => (
               <div key={index}>
                 <Suspense fallback={<Loading />}>

@@ -125,6 +125,7 @@ export const PostPropertyComp = (props) => {
     formInput.agent = session.user.email;
 
     const res = await postPropertyFunction(formInput);
+    console.log(res);
     // if (res.status !== 200) {
     //   console.log('error');
     reset();
@@ -155,7 +156,7 @@ export const PostPropertyComp = (props) => {
   const items = steps.map((item) => ({ key: item.title, title: item.title }));
   return (
     <div>
-      <h1 className=" text-center font-primaryRegular text-fs-3 leading-9 text-primaryDark font-wt-700">{heros.body.heading}</h1>
+      <h1 className=" text-center font-primaryRegular text-fs-3 leading-lh-5 text-primaryDark font-wt-700">{heros.body.heading}</h1>
       <Steps className="my-20 text-black" current={currentStep} items={items} />
       <div className=" relative  flex flex-col items-center justify-center ">
         {modalState && <ModalContainer activeState={isModalActive} title={heros.body.modalContent.title} content={heros.body.modalContent.content} state={modalState} />}
@@ -164,26 +165,26 @@ export const PostPropertyComp = (props) => {
             <Spinner loading={loading} />
           </div>
         ) : (
-          <form className="bg-white w-10/12  mt-8  " onSubmit={handleSubmit(onSubmit)}>
+          <form className="bg-white w-full lg:w-10/12  mt-8  " onSubmit={handleSubmit(onSubmit)}>
 
             {/* FORM 1 */}
             {currentStep === 0 && (
             <>
               <h1 className=" text-center  leading-8 text-fs-2 mt-12 font-wt-500">{heros.body.firstForm.heading}</h1>
-              <div className="px-24  flex mt-12 flex-wrap gap-12 ">
+              <div className=" px-2 md:px-24 flex mt-12 flex-wrap gap-x-2 gap-y-4 justify-start lg:gap-12 ">
                 <div className="flex flex-col ">
                   <label htmlFor="name">Name :</label>
-                  <input type="text" id="name" className=" border-2  px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('name')} placeholder="Enter Name" />
-                  {errors?.name && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.name.message}</p>}
+                  <input type="text" id="name" className=" border-2 md:px-4  px-2 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('name')} placeholder="Enter Name" />
+                  {errors?.name && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.name.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="sqft">Square Area :</label>
-                  <input min={1} type="number" id="sqft" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('squareArea')} placeholder={heros.body.firstForm.sqft} />
-                  {errors?.squareArea && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.squareArea.message}</p>}
+                  <input min={1} type="number" id="sqft" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('squareArea')} placeholder={heros.body.firstForm.sqft} />
+                  {errors?.squareArea && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.squareArea.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="parkingSelect">Parking :</label>
-                  <select className="border-2 px-16 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-non" id="parkingSelect" {...register('parkingSelect')}>
+                  <select className="border-2 px-14 md:px-16 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-non" id="parkingSelect" {...register('parkingSelect')}>
                     <option label={heros.body.firstForm.parkingSelect.select[0]} value={heros.body.firstForm.parkingSelect.select[0]} />
                     <option label={heros.body.firstForm.parkingSelect.select[1]} value={heros.body.firstForm.parkingSelect.select[1]} />
                   </select>
@@ -191,33 +192,33 @@ export const PostPropertyComp = (props) => {
 
                 <div className="flex flex-col ">
                   <label htmlFor="deposit">Deposit :</label>
-                  <input min={1} type="number" id="deposit" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('deposit')} placeholder={heros.body.firstForm.deposit} />
-                  {errors?.deposit && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.deposit.message}</p>}
+                  <input min={1} type="number" id="deposit" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('deposit')} placeholder={heros.body.firstForm.deposit} />
+                  {errors?.deposit && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.deposit.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="price">Price :</label>
-                  <input min={1} type="number" id="price" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('price')} placeholder={heros.body.firstForm.price} />
-                  {errors?.price && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.price.message}</p>}
+                  <input min={1} type="number" id="price" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('price')} placeholder={heros.body.firstForm.price} />
+                  {errors?.price && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.price.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="bathrooms">Bathrooms :</label>
-                  <input min={1} type="number" id="bathrooms" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('bathrooms')} placeholder={heros.body.firstForm.bathrooms} />
-                  {errors?.bathrooms && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.bathrooms.message}</p>}
+                  <input min={1} type="number" id="bathrooms" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('bathrooms')} placeholder={heros.body.firstForm.bathrooms} />
+                  {errors?.bathrooms && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.bathrooms.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="bedrooms">Bedrooms :</label>
-                  <input min={1} type="number" id="bedrooms" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('bedrooms')} placeholder={heros.body.firstForm.bedrooms} />
-                  {errors?.bedrooms && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.bedrooms.message}</p>}
+                  <input min={1} type="number" id="bedrooms" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('bedrooms')} placeholder={heros.body.firstForm.bedrooms} />
+                  {errors?.bedrooms && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.bedrooms.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="repairQuality">Repair Quality :</label>
-                  <input type="text" id="repairQuality" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('repairQuality')} placeholder={heros.body.firstForm.repairQuality} />
-                  {errors?.repairQuality && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.repairQuality.message}</p>}
+                  <input type="text" id="repairQuality" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('repairQuality')} placeholder={heros.body.firstForm.repairQuality} />
+                  {errors?.repairQuality && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.repairQuality.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="descp">Description :</label>
-                  <textarea rows={5} cols={33} id="descp" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('description')} placeholder="Enter the Description of your property..." />
-                  {errors?.description && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.description.message}</p>}
+                  <textarea rows={5} cols={33} id="descp" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('description')} placeholder="Enter the Description of your property..." />
+                  {errors?.description && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.description.message}</p>}
                 </div>
                 {/* {loading ? <Spinner loading={loading} /> : <InputButton loading={loading} />} */}
               </div>
@@ -229,57 +230,57 @@ export const PostPropertyComp = (props) => {
             {currentStep === 1 && (
             <>
               <h1 className=" text-center leading-8 text-fs-2 mt-12 font-wt-500">{heros.body.secondForm.heading}</h1>
-              <div className="px-24  flex mt-12  flex-wrap gap-12 ">
+              <div className=" px-2 md:px-24 flex mt-12 flex-wrap gap-x-2 gap-y-4 justify-start lg:gap-12  ">
                 <div className="flex flex-col ">
                   <label htmlFor="address">Address :</label>
-                  <input type="text" id="address" className=" border-2  px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('address')} placeholder={heros.body.secondForm.address} />
-                  {errors?.address && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.address.message}</p>}
+                  <input type="text" id="address" className=" border-2  px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('address')} placeholder={heros.body.secondForm.address} />
+                  {errors?.address && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.address.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="city">City :</label>
-                  <input type="text" id="city" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('city')} placeholder={heros.body.secondForm.city} />
-                  {errors?.city && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.city.message}</p>}
+                  <input type="text" id="city" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('city')} placeholder={heros.body.secondForm.city} />
+                  {errors?.city && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.city.message}</p>}
                 </div>
 
                 <div className="flex flex-col ">
                   <label htmlFor="state">State :</label>
-                  <input min={1} type="string" id="state" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('state')} placeholder={heros.body.secondForm.state} />
-                  {errors?.state && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.state.message}</p>}
+                  <input min={1} type="string" id="state" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('state')} placeholder={heros.body.secondForm.state} />
+                  {errors?.state && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.state.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="pincode">Pincode :</label>
-                  <input min={1} type="number" id="pincode" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('pinCode')} placeholder={heros.body.secondForm.pincode} />
-                  {errors?.pinCode && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.pinCode.message}</p>}
+                  <input min={1} type="number" id="pincode" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('pinCode')} placeholder={heros.body.secondForm.pincode} />
+                  {errors?.pinCode && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.pinCode.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="country">Country :</label>
-                  <input type="text" id="country" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('country')} placeholder={heros.body.secondForm.country} />
-                  {errors?.country && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.country.message}</p>}
+                  <input type="text" id="country" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('country')} placeholder={heros.body.secondForm.country} />
+                  {errors?.country && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.country.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="type">Laundry :</label>
-                  <select className="border-2 px-16 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-non" id="type" {...register('laundry')}>
+                  <select className="border-2 px-13 lg:px-13 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-non" id="type" {...register('laundry')}>
                     <option label={heros.body.secondForm.laundry.select[0]} value={heros.body.secondForm.laundry.select[0]} />
                     <option label={heros.body.secondForm.laundry.select[1]} value={heros.body.secondForm.laundry.select[1]} />
                   </select>
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="heating">Heating :</label>
-                  <select className="border-2 px-12 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-non" id="heating" {...register('heating')}>
+                  <select className="border-2 px-10 md:px-12 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-non" id="heating" {...register('heating')}>
                     <option label={heros.body.secondForm.heating.select[0]} value={heros.body.secondForm.heating.select[0]} />
                     <option label={heros.body.secondForm.heating.select[1]} value={heros.body.secondForm.heating.select[1]} />
                   </select>
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="cooling">Cooling :</label>
-                  <select className="border-2 px-10 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-non" id="cooling" {...register('cooling')}>
+                  <select className="border-2  px-7 md:px-9  py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-non" id="cooling" {...register('cooling')}>
                     <option label={heros.body.secondForm.cooling.select[0]} value={heros.body.secondForm.cooling.select[0]} />
                     <option label={heros.body.secondForm.cooling.select[1]} value={heros.body.secondForm.cooling.select[1]} />
                   </select>
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="type">Type :</label>
-                  <select className="border-2 px-12 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-non" id="type" {...register('type')}>
+                  <select className="border-2 px-10 md:px-12 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-non" id="type" {...register('type')}>
                     <option label={heros.body.secondForm.type.select[0]} value={heros.body.secondForm.type.select[0]} />
                     <option label={heros.body.secondForm.type.select[1]} value={heros.body.secondForm.type.select[1]} />
                     <option label={heros.body.secondForm.type.select[2]} value={heros.body.secondForm.type.select[2]} />
@@ -288,9 +289,9 @@ export const PostPropertyComp = (props) => {
                 <div className="flex flex-col ">
                   <label htmlFor="coordinates">Coordinates :</label>
                   <input min={1} type="number" id="coordinates" className="  border-2 px-2 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('coordinate1')} placeholder={heros.body.secondForm.coordinates.lat} />
-                  {errors?.coordinate1 && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.coordinate1.message}</p>}
+                  {errors?.coordinate1 && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.coordinate1.message}</p>}
                   <input min={1} type="number" id="coordinates" className="  border-2 px-2 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('coordinate2')} placeholder={heros.body.secondForm.coordinates.long} />
-                  {errors?.coordinate2 && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.coordinate2.message}</p>}
+                  {errors?.coordinate2 && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.coordinate2.message}</p>}
                 </div>
 
                 {/* {loading ? <Spinner loading={loading} /> : <InputButton loading={loading} />} */}
@@ -303,16 +304,16 @@ export const PostPropertyComp = (props) => {
             {currentStep === 2 && (
             <>
               <h1 className=" text-center leading-8 text-fs-2 mt-12 font-wt-500">{heros.body.thirdForm.heading}</h1>
-              <div className="px-24  flex mt-12 flex-wrap gap-12 ">
+              <div className=" px-2 md:px-24 flex mt-12 flex-wrap gap-x-2 gap-y-4 justify-start lg:gap-12 ">
                 <div className="flex flex-col ">
                   <label htmlFor="imageCover">Image Cover :</label>
-                  <input type="file" accept="image/*" id="imageCover" className=" border-2  px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('imageCover')} placeholder={heros.body.thirdForm.imageCover} />
-                  {errors?.imageCover && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.imageCover.message}</p>}
+                  <input type="file" accept="image/*" id="imageCover" className=" border-2  px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('imageCover')} placeholder={heros.body.thirdForm.imageCover} />
+                  {errors?.imageCover && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.imageCover.message}</p>}
                 </div>
                 <div className="flex flex-col ">
                   <label htmlFor="images">Images :</label>
-                  <input multiple type="file" id="images" accept="image/*" className="  border-2 px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('images')} placeholder={heros.body.thirdForm.images} />
-                  {errors?.images && <p className=" font-primaryRegular text-red text-fs-0.7">{errors.images.message}</p>}
+                  <input multiple type="file" id="images" accept="image/*" className="  border-2 px-2 md:px-4 py-2 mt-4 text-fs-0.7 font-primaryRegular rounded-md outline-none" {...register('images')} placeholder={heros.body.thirdForm.images} />
+                  {errors?.images && <p className=" font-primaryRegular text-red text-fs-0.7 w-28">{errors.images.message}</p>}
                 </div>
 
                 {/* {loading ? <Spinner loading={loading} /> : <InputButton loading={loading} />} */}
@@ -323,12 +324,12 @@ export const PostPropertyComp = (props) => {
             {/* NAVIGATION */}
 
             <div className="w-full h-14 flex justify-between mt-20 ">
-              <button onClick={() => prev()} disabled={currentStep === 0} style={{ backgroundColor: 'black' }} type="button" className=" cursor-pointer disabled:cursor-not-allowed rounded-md px-4 py-3 text-white">{heros.body.prevButton}</button>
+              <button onClick={() => prev()} disabled={currentStep === 0} style={{ backgroundColor: 'black' }} type="button" className=" cursor-pointer disabled:cursor-not-allowed rounded-md px-2 md:px-4 py-3 text-white">{heros.body.prevButton}</button>
               {currentStep === 2 ? (
                 <div>
                   <InputButton loading={loading} />
                 </div>
-              ) : <button onClick={() => next()} style={{ backgroundColor: 'black' }} type="button" className=" rounded-md px-4 py-3 text-white cursor-pointer">{heros.body.nextButton}</button>}
+              ) : <button onClick={() => next()} style={{ backgroundColor: 'black' }} type="button" className=" rounded-md px-2 md:px-4 py-3 text-white cursor-pointer">{heros.body.nextButton}</button>}
 
             </div>
           </form>

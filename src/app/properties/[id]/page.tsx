@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable react/function-component-definition */
 
-import { getAllProperties, getProperty } from '../../../../libs/getData';
-import { getDatafor } from '../../../common/helpers/gsp';
+import { getProperty } from '../../../../libs/getData';
 import PropertyContainer from '../../../modules/property-view/PropertyContainer';
 import { propertyViewAPI } from '../../../services/api/propertyView';
-import { useStore } from '../../../store';
 
 type Params = {
   params:{
@@ -31,4 +29,3 @@ export default async function Page({ params: { id } }:Params) {
 
   return <PropertyContainer response={response} doc={doc} />;
 }
-

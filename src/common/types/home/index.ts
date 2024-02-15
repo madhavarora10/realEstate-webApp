@@ -29,7 +29,7 @@ export type NewsletterType = {
     buttonText:string,
     placeholder:string
   }
- 
+
 };
 
 export type middlePage2Type = {

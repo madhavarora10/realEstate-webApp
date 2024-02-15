@@ -12,7 +12,6 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import _ from 'lodash';
 import React, { useState, Suspense } from 'react';
 import { Input } from 'antd';
-import { setCookie } from "cookies-next";
 import { SubHeading } from '../../../../common/components/Headings/SubHeading';
 import { ArrayObjectsType } from '../../../../common/types/hero';
 import { CardBasic } from '../../../../common/components/Card/CardBasic';
@@ -71,9 +70,6 @@ const PropertiesPage = (props: PropertiesPageProps) => {
       coords.push(el.coordinates)
     ));
     setCoordsData(coords);
-    setCookie("location", userInput.location);
-    setCookie("price", userInput.price);
-    setCookie("type", userInput.type);
   };
   const onSearch = (value: string) => setSearchvalue(value);
   // console.log(heros)
@@ -132,6 +128,7 @@ const PropertiesPage = (props: PropertiesPageProps) => {
           {cardData?.docs?.map((el, index:number) => (
             <div key={index}>
               <Suspense fallback={<Loading />}>
+                {/*  @ts-ignore */}
                 <CardBasic {...el} />
               </Suspense>
             </div>

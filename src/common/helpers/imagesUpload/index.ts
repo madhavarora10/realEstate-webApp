@@ -1,7 +1,7 @@
 import { writeFile } from 'fs/promises';
 import path from 'path';
 
-export const imageUpload = async (image:File, filePath:string,filename) => {
+export const imageUpload = async (image:File, filePath:string, filename) => {
   try {
     const buffer = Buffer.from(await image.arrayBuffer());
     // console.log(filename);

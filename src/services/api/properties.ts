@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { FetchParamsType } from '../types/fetch-params';
+import { FetchParamsType } from '../fetch-params';
 import { properties } from '../../../assets/properties';
 import { navbar } from '../../../assets/navbar';
 import { footer } from '../../../assets/footer';

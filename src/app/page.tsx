@@ -2,7 +2,7 @@
 /* eslint-disable import/export */
 
 import HomeContainer from '../modules/home/HomeContainer';
-import {homeAPI} from '../services/api/home'
+import { homeAPI } from '../services/api/home';
 
 function getProps() {
   const response = homeAPI.fetch({ locale: 'en' });

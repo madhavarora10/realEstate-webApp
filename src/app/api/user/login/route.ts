@@ -8,7 +8,6 @@ import {
   UserLoginBody,
 } from '../../../../common/types';
 import { User } from '../../../../../models/user';
-import { createSendToken } from '../../../../common/utils/jwt-utils';
 
 export async function POST(request:Request, res:NextApiResponse) {
   try {

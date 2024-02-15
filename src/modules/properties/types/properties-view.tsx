@@ -1,13 +1,12 @@
 import {
-  PropertiesPage,
   Footer,
-  NavType,
-} from '../../../common/types/home/index';
+  Navbar,
+} from '../../../common/types/index';
 
 export type PropertiesViewProps = {
 
-  properties?: PropertiesPage | any
-  navbar?:NavType | any
+  properties?: any
+  navbar?:Navbar | any
   footer?:Footer | any
 
 };

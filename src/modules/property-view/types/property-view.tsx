@@ -1,15 +1,16 @@
 import {
   propertyView,
   Footer,
-  NavType,
-} from '../../../common/types/property-page/index';
+  Navbar,
+} from '../../../common/types/index';
+
 import { PropertyType } from '../../../common/types/property-type';
 
 export type PropertyViewProps = {
 
   response:{
     propertyView?: propertyView
-    navbar?:NavType | any
+    navbar?:Navbar | any
     footer?:Footer | any,
   },
   doc:PropertyType

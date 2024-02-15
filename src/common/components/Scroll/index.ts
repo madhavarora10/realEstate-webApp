@@ -10,6 +10,6 @@ export const Scroll = () => {
   useMotionValueEvent(scrollY, 'change', (latest) => {
     seLtatestScrollValue(latest);
   });
-//   console.log(latestScrollValue);
+  //   console.log(latestScrollValue);
   return latestScrollValue;
 };

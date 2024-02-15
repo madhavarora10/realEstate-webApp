@@ -23,7 +23,6 @@ const HomeView = (props?: any) => {
       <div className="flex w-full  flex-col items-center overflow-x-hidden ">
         <NavBanner heros={navbar} />
         <TopPage heros={index.topPage} />
-        {/* <SwiperContainer /> */}
         <MiddlePage2 heros={index.middlePage2} />
         <AboutUs heros={index.aboutUs} />
         <ReviewSection heros={index.reviews} />

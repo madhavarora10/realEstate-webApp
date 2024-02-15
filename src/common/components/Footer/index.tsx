@@ -71,7 +71,7 @@ const Footer = (props: FooterProps) => {
           </div>
         ))}
         <div>
-          <SubHeading className=' text-fs-1.25 font-wt-500 leading-7 pb-2' textContent={heros.socials?.heading} />
+          <SubHeading className=" text-fs-1.25 font-wt-500 leading-7 pb-2" textContent={heros.socials?.heading} />
           <div className="flex justify-between gap-6 text-fs-1.5 cursor-pointer">
             {
                 heros.socials?.socialsLinks?.map((el:any, index:number) => (

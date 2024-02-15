@@ -11,7 +11,7 @@ export type Login = {
       signButton: string,
     },
     accountText: string,
-    Register: { text: string, link: string},
+    Register: { text: string, link: string },
 
   },
 

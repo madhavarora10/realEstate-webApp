@@ -35,6 +35,7 @@ export const SelectDefault = (props:SelectProps) => {
           optionFilterProp="children"
           onChange={onChange}
           // onSearch={onSearch}
+          // @ts-ignore
           filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
           options={options}
         />

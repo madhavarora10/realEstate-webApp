@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable no-param-reassign */
+
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { loginUser } from '../../../../../libs/userData';
@@ -63,9 +64,11 @@ export const authOptions:NextAuthOptions = {
         token.user = user;
       }
       if (trigger === "update") {
+        // @ts-ignore
         token.user.name = session.name;
+        // @ts-ignore
         token.user.image = session.image;
-       
+
         // console.log(token.user.name , session);
       }
       return token;
